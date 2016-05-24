@@ -4,7 +4,13 @@
   description: "Docker Registry"
   uuid: registry-3
   questions: 
-    - variable: "PORT"
+    - variable: "RPORT"
+      label: "Registry Port"
+      description: "Port on which to run the registry service"
+      default: 5000
+      required: true
+      type: "int"
+    - variable: "PPORT"
       label: "Admin Port"
       description: "Port on which to run the SSL Portus administration service and API"
       default: 443
