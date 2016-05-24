@@ -4,13 +4,12 @@
   description: "Docker Registry"
   uuid: registry-3
   questions: 
-    - variable: "RPORT"
-      label: "Registry Port"
-      description: "Port on which to run the registry service"
-      default: 5000
+    - variable: "DOMAIN"
+      label: "FQDN"
+      description: "FQDN of server.  This should be the CN in the certificates and will be the URL to contact the Registry and Web interface"
       required: true
-      type: "int"
-    - variable: "PPORT"
+      type: "string"
+    - variable: "PORT"
       label: "Admin Port"
       description: "Port on which to run the SSL Portus administration service and API"
       default: 443
@@ -40,11 +39,6 @@
       required: true
       type: "string"
       default: "registry"
-    - variable: "DOMAIN"
-      label: "FQDN"
-      description: "FQDN of server.  This should be the CN in the certificates and will be the URL to contact the Registry and Web interface"
-      required: true
-      type: "string"
     - variable: "LDAP"
       label: "LDAP Enabled"
       description: "Enable LDAP authentication"

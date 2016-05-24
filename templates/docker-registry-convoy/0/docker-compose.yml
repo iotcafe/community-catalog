@@ -31,8 +31,8 @@ registry:
     REGISTRY_LOG_LEVEL: warn
     REGISTRY_STORAGE_DELETE_ENABLED: true
     REGISTRY_AUTH: token
-    REGISTRY_AUTH_TOKEN_REALM: https://${DOMAIN}:${PPORT}/v2/token
-    REGISTRY_AUTH_TOKEN_SERVICE: ${DOMAIN}:${RPORT}
+    REGISTRY_AUTH_TOKEN_REALM: https://${DOMAIN}:${PORT}/v2/token
+    REGISTRY_AUTH_TOKEN_SERVICE: ${DOMAIN}:${PORT}
     REGISTRY_AUTH_TOKEN_ISSUER: ${DOMAIN}
     REGISTRY_AUTH_TOKEN_ROOTCERTBUNDLE: /certs/registry.crt
     REGISTRY_HTTP_TLS_CERTIFICATE: /certs/registry.crt
@@ -57,9 +57,9 @@ lb:
   tty: true
   stdin_open: true
   ports:
-  - ${PPORT}:443/tcp
+  - ${PORT}:443/tcp
   labels:
-    io.rancher.loadbalancer.target.sslproxy: ${PPORT}=443
+    io.rancher.loadbalancer.target.sslproxy: ${PORT}=443
     io.rancher.scheduler.global: 'true'
     io.rancher.scheduler.affinity:not_host_label: lb=0
     io.rancher.scheduler.affinity:not_host_label: registry.enabled=false
@@ -90,10 +90,10 @@ portus:
     PORTUS_LDAP_AUTHENTICATION_PASSWORD: ${LDAPBINDPASS}
     PORTUS_LDAP_GUESS_EMAIL_ENABLED: true
     PORTUS_LDAP_GUESS_EMAIL_ATTR: mail
-    PORTUS_PORT: ${PPORT}
+    PORTUS_PORT: ${PORT}
     REGISTRY_SSL_ENABLED: true
     REGISTRY_HOSTNAME: ${DOMAIN}
-    REGISTRY_PORT: ${RPORT}
+    REGISTRY_PORT: ${PORT}
     REGISTRY_NAME: Registry
   tty: true
   stdin_open: true
