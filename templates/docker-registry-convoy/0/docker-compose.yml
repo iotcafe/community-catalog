@@ -18,6 +18,7 @@ sslproxy:
   stdin_open: true
   links:
   - portus:portus
+  - registry:registry
   volume_driver: ${DRIVER}
   volumes:
   - ${PFX}-certs:/etc/nginx/certs:ro
@@ -47,7 +48,6 @@ registry:
   stdin_open: true
   links:
   - portus:portus
-  - registry:registry
   volume_driver: ${DRIVER}
   volumes:
   - ${PFX}-certs:/certs
