@@ -66,7 +66,7 @@ lb:
   links:
   - sslproxy:sslproxy
 portus:
-  image: registry.aliyuncs.com/mengjiaqi/portus
+  image: mengjiaqi/portus:latest
   environment: 
     PORTUS_MACHINE_FQDN: ${DOMAIN}
     PORTUS_PRODUCTION_HOST: db
